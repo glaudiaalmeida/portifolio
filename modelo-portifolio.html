@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio profissional de Glaudia Almeida — tecnologia, desenvolvimento e soluções digitais.">
+  <title>Glaudia Almeida | Tecnologia & Desenvolvimento</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --bg-soft:#11182b;
+      --card:rgba(255,255,255,.06);
+      --text:#f5f7ff;
+      --muted:#aeb7cc;
+      --accent:#8b7cff;
+      --accent-2:#5eead4;
+      --border:rgba(255,255,255,.10);
+      --max:1120px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(139,124,255,.18), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(94,234,212,.10), transparent 25%),
+        var(--bg);
+      color:var(--text); line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(92%,var(--max));margin:auto}
+    header{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter:blur(16px);
+      background:rgba(11,16,32,.78);
+      border-bottom:1px solid var(--border);
+    }
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:800;font-size:1.15rem;letter-spacing:.02em}
+    .logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:1.4rem;list-style:none}
+    .nav-links a{color:var(--muted);font-size:.95rem}
+    .nav-links a:hover{color:var(--text)}
+    .menu{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:.45rem .7rem;border-radius:10px}
+    section{padding:90px 0}
+    .hero{min-height:calc(100vh - 72px);display:grid;place-items:center}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:4rem;align-items:center}
+    .eyebrow{color:var(--accent-2);font-weight:700;text-transform:uppercase;letter-spacing:.13em;font-size:.78rem;margin-bottom:1rem}
+    h1{font-size:clamp(2.7rem,7vw,5.4rem);line-height:.98;letter-spacing:-.05em;margin-bottom:1.4rem}
+    h1 span{color:var(--accent)}
+    .hero p{font-size:1.15rem;color:var(--muted);max-width:650px}
+    .buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+    .btn{padding:.85rem 1.15rem;border-radius:12px;border:1px solid var(--border);font-weight:700;transition:.2s}
+    .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    .btn:hover{transform:translateY(-2px)}
+    .profile-card{
+      aspect-ratio:1;max-width:380px;margin:auto;border:1px solid var(--border);
+      border-radius:32px;background:linear-gradient(145deg,rgba(139,124,255,.22),rgba(94,234,212,.06));
+      display:grid;place-items:center;box-shadow:0 30px 80px rgba(0,0,0,.28)
+    }
+    .profile-placeholder{text-align:center;color:var(--muted);padding:2rem}
+    .profile-placeholder strong{display:block;color:var(--text);font-size:4rem;margin-bottom:.4rem}
+    .section-title{font-size:clamp(2rem,4vw,3rem);margin-bottom:.7rem;letter-spacing:-.03em}
+    .section-intro{color:var(--muted);max-width:700px;margin-bottom:2.5rem}
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:2rem}
+    .panel,.skill,.project,.timeline-item,.contact-card{
+      background:var(--card);border:1px solid var(--border);border-radius:20px;
+    }
+    .panel{padding:2rem}
+    .panel h3{margin-bottom:.8rem}
+    .panel p{color:var(--muted)}
+    .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .skill{padding:1.3rem}
+    .skill b{display:block;margin-bottom:.35rem}
+    .skill span{color:var(--muted);font-size:.9rem}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+    .project{padding:1.5rem;min-height:250px;display:flex;flex-direction:column}
+    .project .tag{color:var(--accent-2);font-size:.8rem;font-weight:700;text-transform:uppercase}
+    .project h3{font-size:1.35rem;margin:.5rem 0}
+    .project p{color:var(--muted);flex:1}
+    .project-links{display:flex;gap:.8rem;margin-top:1rem}
+    .small-btn{padding:.55rem .8rem;border:1px solid var(--border);border-radius:9px;font-size:.85rem}
+    .timeline{display:grid;gap:1rem}
+    .timeline-item{padding:1.4rem 1.6rem;display:grid;grid-template-columns:110px 1fr;gap:1rem}
+    .timeline-item time{color:var(--accent-2);font-weight:800}
+    .timeline-item p{color:var(--muted)}
+    .education{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+    .contact-card{text-align:center;padding:3rem}
+    .contact-card p{color:var(--muted);max-width:600px;margin:.8rem auto 1.5rem}
+    .contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+    footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);text-align:center}
+    .note{font-size:.8rem;color:#7f8aa3;margin-top:1rem}
+    @media(max-width:800px){
+      .nav-links{display:none;position:absolute;top:72px;left:0;right:0;padding:1rem 4%;background:var(--bg-soft);flex-direction:column;border-bottom:1px solid var(--border)}
+      .nav-links.open{display:flex}.menu{display:block}
+      .hero-grid,.about-grid{grid-template-columns:1fr}
+      .hero{padding:60px 0}.profile-card{max-width:280px}
+      .skills{grid-template-columns:repeat(2,1fr)}
+      .projects,.education{grid-template-columns:1fr}
+      .timeline-item{grid-template-columns:1fr;gap:.2rem}
+    }
+    @media(max-width:480px){section{padding:70px 0}.skills{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#inicio">Glaudia<span>.</span></a>
+      <button class="menu" id="menuBtn" aria-label="Abrir menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#trajetoria">Trajetória</a></li>
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Tecnologia • Desenvolvimento • Aprendizado contínuo</div>
+        <h1>Olá, eu sou<br><span>Glaudia Almeida.</span></h1>
+        <p>Experiência com tecnologia desde 1986 e uma nova etapa profissional voltada ao desenvolvimento de software, soluções digitais e criação de projetos.</p>
+        <div class="buttons">
+          <a class="btn primary" href="#projetos">Ver meus projetos</a>
+          <a class="btn" href="#contato">Entrar em contato</a>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-placeholder">
+          <strong>GA</strong>
+          <span>Seu espaço para uma foto profissional</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container">
+      <div class="eyebrow">Sobre mim</div>
+      <h2 class="section-title">Experiência que encontra novos caminhos.</h2>
+      <div class="about-grid">
+        <div class="panel">
+          <h3>Minha trajetória</h3>
+          <p>Minha relação com a tecnologia começou em 1986. Ao longo dos anos, atuei com suporte, sistemas, ambientes de tecnologia e ensino, sempre buscando traduzir a tecnologia para as necessidades das pessoas.</p>
+        </div>
+        <div class="panel">
+          <h3>Meu momento atual</h3>
+          <p>Hoje estou aprofundando meus conhecimentos em desenvolvimento, com foco em JavaScript, Node.js, React e desenvolvimento de aplicações. Este portfólio representa uma nova etapa: aprender, construir e transformar conhecimento em projetos reais.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <div class="container">
+      <div class="eyebrow">Conhecimentos</div>
+      <h2 class="section-title">Minhas habilidades</h2>
+      <p class="section-intro">Uma combinação de experiência prática em tecnologia com conhecimentos atuais de desenvolvimento.</p>
+      <div class="skills">
+        <div class="skill"><b>JavaScript</b><span>Fundamentos e desenvolvimento de aplicações</span></div>
+        <div class="skill"><b>Node.js</b><span>Back-end e APIs</span></div>
+        <div class="skill"><b>React</b><span>Interfaces e componentes</span></div>
+        <div class="skill"><b>React Native</b><span>Aplicações para dispositivos móveis</span></div>
+        <div class="skill"><b>HTML / CSS</b><span>Estrutura e estilização web</span></div>
+        <div class="skill"><b>APIs</b><span>Integração de serviços e dados</span></div>
+        <div class="skill"><b>Git / GitHub</b><span>Versionamento e portfólio</span></div>
+        <div class="skill"><b>Suporte técnico</b><span>Tecnologia aplicada às pessoas</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="container">
+      <div class="eyebrow">Portfólio</div>
+      <h2 class="section-title">Projetos</h2>
+      <p class="section-intro">Projetos pessoais e acadêmicos que demonstram minha evolução prática.</p>
+      <div class="projects">
+        <article class="project">
+          <div class="tag">Projeto principal</div>
+          <h3>Compras na Sua Rota</h3>
+          <p>Aplicação pensada para ajudar o usuário a encontrar estabelecimentos próximos que possam atender aos itens de sua lista de compras, usando localização, mapas e serviços externos.</p>
+          <div class="project-links">
+            <a class="small-btn" href="#" onclick="return false">GitHub em breve</a>
+            <a class="small-btn" href="#" onclick="return false">Demo em breve</a>
+          </div>
+        </article>
+        <article class="project">
+          <div class="tag">JavaScript</div>
+          <h3>Projeto 02</h3>
+          <p>Espaço reservado para um projeto de front-end. Vamos substituir este card pelo seu próximo projeto real.</p>
+          <div class="project-links"><a class="small-btn" href="#" onclick="return false">GitHub</a></div>
+        </article>
+        <article class="project">
+          <div class="tag">Back-end</div>
+          <h3>Projeto 03</h3>
+          <p>Espaço para uma API desenvolvida com Node.js, mostrando rotas, validações e integração com dados.</p>
+          <div class="project-links"><a class="small-btn" href="#" onclick="return false">GitHub</a></div>
+        </article>
+        <article class="project">
+          <div class="tag">Mobile / Web</div>
+          <h3>Projeto 04</h3>
+          <p>Espaço para uma aplicação desenvolvida durante sua formação, escolhida para demonstrar outra habilidade técnica.</p>
+          <div class="project-links"><a class="small-btn" href="#" onclick="return false">GitHub</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="trajetoria">
+    <div class="container">
+      <div class="eyebrow">Experiência</div>
+      <h2 class="section-title">Minha trajetória</h2>
+      <div class="timeline">
+        <div class="timeline-item"><time>1986</time><div><h3>Início da experiência com tecnologia</h3><p>Primeiros passos profissionais em ambientes de tecnologia e informática.</p></div></div>
+        <div class="timeline-item"><time>Ao longo dos anos</time><div><h3>Experiência profissional</h3><p>Atuação em diferentes ambientes e setores, incluindo suporte, sistemas e tecnologia.</p></div></div>
+        <div class="timeline-item"><time>Formação</time><div><h3>Desenvolvimento de novas competências</h3><p>Estudos em JavaScript, front-end, back-end com Node.js e desenvolvimento de aplicações.</p></div></div>
+        <div class="timeline-item"><time>Hoje</time><div><h3>Nova etapa profissional</h3><p>Construção de projetos e consolidação dos conhecimentos em desenvolvimento de software.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacao">
+    <div class="container">
+      <div class="eyebrow">Estudos</div>
+      <h2 class="section-title">Formação</h2>
+      <div class="education">
+        <div class="panel"><h3>UFRGS</h3><p>Computação e Robótica</p></div>
+        <div class="panel"><h3>FASUL</h3><p>Análise e Desenvolvimento de Sistemas</p></div>
+        <div class="panel"><h3>Bootcamp</h3><p>JavaScript — Front-end</p></div>
+        <div class="panel"><h3>Bootcamp</h3><p>Back-end com Node.js</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="container">
+      <div class="contact-card">
+        <div class="eyebrow">Contato</div>
+        <h2 class="section-title">Vamos conversar?</h2>
+        <p>Estou aberta a oportunidades, projetos e novos desafios na área de tecnologia.</p>
+        <div class="contact-links">
+          <a class="btn primary" href="mailto:seuemail@exemplo.com">E-mail</a>
+          <a class="btn" href="#" onclick="return false">LinkedIn</a>
+          <a class="btn" href="#" onclick="return false">GitHub</a>
+        </div>
+        <div class="note">Os links de LinkedIn, GitHub e o e-mail serão substituídos pelos seus dados reais.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© 2026 Glaudia Almeida — Tecnologia & Desenvolvimento</div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+</script>
+</body>
+</html>
